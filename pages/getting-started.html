@@ -4,3 +4,54 @@
         <p class="lead">How to get started with CBT.</p>
     </div>
 </main>
+
+<div class="container bs-docs-container">
+    <div class="row">
+        <div class="col-md-10" role="main">
+            <div class="bs-docs-section">
+                <h1 class="page-header">Folder structure</h1>
+                <p>To get started with CBT for your source code projects, you'll first need to establish a <strong>root</strong> folder.  For source control systems like Git, this would be the root of the repository.  If your source code projects are not source control, this would be some base folder that your set of projects share.</p>
+                <p>CBT uses three folders which you'll need to in your source code tree.
+                    <ol>
+                        <li><code>EnlistmentRoot</code> The root folder of your source code projects.  In this folder you place the root <code>build.props</code> file that is imported by all of your MSBuild projects and is then used to enable CBT.  This MSBuild file tells CBT where the <code>CBTGlobalPath</code> and <code>CBTLocalPath</code> folders are.</li>
+                        <li><code>CBTGlobalPath</code> The folder where you place CBT's core components.  This folder contains the core functionality of CBT and only needs to be changed when you update CBT. </li>
+                        <li><code>CBTLocalPath</code> The folder where you configure CBT for your needs.  This folder can contain CBT module functionality in the case where you don't want to use a module for whatever reason.</li>
+                    </ol>
+                </p>
+                <h2>Example folder structure</h2>
+                <p>This is a typical and recommended folder structure for your source code projects and the corresponding CBT folders:</p>
+                <pre><code>root/
+├── .build/              &lt;- EnlistmentRoot
+│   ├── cbt/             &lt;- CBTGlobalPath
+│   |   ├── build.props
+│   |   └── CBT.Core.dll
+│   └── local/           &lt;- CBTLocalPath
+│       └── build.props
+├── src/
+│   ├── project1/
+│   └── project2/
+└── build.props
+</code></pre>
+                <p>Of course the <code>CBTGlobalPath</code> folder and <code>CBTLocalPath</code> folder can be anywhere you want them.  The above example is similar to what you might find in a Git repository.</p>
+                <h2>No source control</h2>
+                <p>CBT will also work in a stand-alone fashion without source control.  This example is for a typical project layout where you have a Visual Studio Solution and a few projects:</p>
+                <pre><code>root/
+├── .build/              &lt;- EnlistmentRoot
+│   ├── cbt/             &lt;- CBTGlobalPath
+│   |   ├── build.props
+│   |   └── CBT.Core.dll
+│   └── local/           &lt;- CBTLocalPath
+│       └── build.props
+├── ClassLibrary/
+├── ConsoleApplication/
+├── UnitTests/
+├── WebApplication/
+├── build.props
+└── MyProjects.sln
+</code></pre>
+            <p>The addition is really just the root <code>build.props</code> file along with CBT itself.</p>
+            </div>
+        </div>
+        <div class="col-md-2" role="complementary"></div>
+    </div>
+</div>
