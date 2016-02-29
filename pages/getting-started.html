@@ -9,7 +9,66 @@
     <div class="row">
         <div class="col-md-10" role="main">
             <div class="bs-docs-section">
-                <h1 class="page-header">Folder structure</h1>
+                <h1 class="page-header" id="installation">Installation</h1>
+                <p>To install CBT, just copy the core CBT.Core.dll and build.props to your <code>CBTGlobalPath</code> and the root build.props to your <code>EnlistmentRoot</code> folder.  More information about the folder structure is below.  It is very important that the root build.props
+                sets the properties correctly depending on your <a href="#/getting-started#folder-structure" target="_self">folder structure</a>.</p>
+                <p>If you're using a source control system, you'll want to check in these files.  When updating CBT, you should only need to update the CBT.Core.dll and build.props in the <code>CBTGlobalPath</code>.  We don't plan on needing to update these two files very much so rest easy having them checked in.</p>
+                <h1 class="page-header" id="">Converting projects</h1>
+                <p>Once CBT is installed in your source code tree, you'll need to enable it in each project.  This is done by importing the <code>build.props</code> file in your <code>EnlistmentRoot</code>.  We recommend you do this by editing the project in a text editor and adding the following:</p>
+                <pre><code class="xml">&lt;Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), build.props))\build.props" /&gt;</code></pre>
+                <p>This tells MSBuild to traverse up the directory tree looking for a build.props file.  If needed, you can have build.props files at different levels in your tree but be sure that each build.props also imports any parent build.props.  The build.props in the root folder
+                    imports CBT and enables all of the functionality.
+                </p>
+                <div class="bs-callout bs-callout-warning" id="remove-mscp"> <h4>Remove import of Microsoft.Common.props</h4> <p>Most default project templates will add an import for Microsoft.Common.props.  This import can be replaced by the import of the CBT build.props instead.  Microsoft.Common.props is still imported by Microsoft.Common.targets so you won't lose any functionality.</p> </div>
+                <p>This is an example project after it has been converted.  The only change from project creation is the removal of the Microsoft.Common.props and the addition of the CBT build.props import.</p>
+                <pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;Project ToolsVersion=&quot;12.0&quot; DefaultTargets=&quot;Build&quot; xmlns=&quot;http://schemas.microsoft.com/developer/msbuild/2003&quot;&gt;
+  &lt;PropertyGroup&gt;
+    &lt;Configuration Condition=&quot; &#39;$(Configuration)&#39; == &#39;&#39; &quot;&gt;Debug&lt;/Configuration&gt;
+    &lt;Platform Condition=&quot; &#39;$(Platform)&#39; == &#39;&#39; &quot;&gt;AnyCPU&lt;/Platform&gt;
+    &lt;ProjectGuid&gt;{A13C022E-4950-4B0E-935C-961C133C0087}&lt;/ProjectGuid&gt;
+    &lt;OutputType&gt;Library&lt;/OutputType&gt;
+    &lt;AppDesignerFolder&gt;Properties&lt;/AppDesignerFolder&gt;
+    &lt;RootNamespace&gt;MyNamespace&lt;/RootNamespace&gt;
+    &lt;AssemblyName&gt;MyAssembly&lt;/AssemblyName&gt;
+    &lt;TargetFrameworkVersion&gt;v4.5&lt;/TargetFrameworkVersion&gt;
+    &lt;FileAlignment&gt;512&lt;/FileAlignment&gt;
+  &lt;/PropertyGroup&gt;
+  &lt;Import Project=&quot;$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), build.props))\build.props&quot; /&gt;
+  &lt;PropertyGroup Condition=&quot; &#39;$(Configuration)|$(Platform)&#39; == &#39;Debug|AnyCPU&#39; &quot;&gt;
+    &lt;PlatformTarget&gt;AnyCPU&lt;/PlatformTarget&gt;
+    &lt;DebugSymbols&gt;true&lt;/DebugSymbols&gt;
+    &lt;DebugType&gt;full&lt;/DebugType&gt;
+    &lt;Optimize&gt;false&lt;/Optimize&gt;
+    &lt;OutputPath&gt;bin\Debug\&lt;/OutputPath&gt;
+    &lt;DefineConstants&gt;DEBUG;TRACE&lt;/DefineConstants&gt;
+    &lt;ErrorReport&gt;prompt&lt;/ErrorReport&gt;
+    &lt;WarningLevel&gt;4&lt;/WarningLevel&gt;
+  &lt;/PropertyGroup&gt;
+  &lt;PropertyGroup Condition=&quot; &#39;$(Configuration)|$(Platform)&#39; == &#39;Release|AnyCPU&#39; &quot;&gt;
+    &lt;PlatformTarget&gt;AnyCPU&lt;/PlatformTarget&gt;
+    &lt;DebugType&gt;pdbonly&lt;/DebugType&gt;
+    &lt;Optimize&gt;true&lt;/Optimize&gt;
+    &lt;OutputPath&gt;bin\Release\&lt;/OutputPath&gt;
+    &lt;DefineConstants&gt;TRACE&lt;/DefineConstants&gt;
+    &lt;ErrorReport&gt;prompt&lt;/ErrorReport&gt;
+    &lt;WarningLevel&gt;4&lt;/WarningLevel&gt;
+  &lt;/PropertyGroup&gt;
+  &lt;ItemGroup&gt;
+    &lt;Reference Include=&quot;System&quot; /&gt;
+  &lt;/ItemGroup&gt;
+  &lt;ItemGroup&gt;
+    &lt;Compile Include=&quot;Program.cs&quot; /&gt;
+    &lt;Compile Include=&quot;Properties\AssemblyInfo.cs&quot; /&gt;
+  &lt;/ItemGroup&gt;
+  &lt;ItemGroup&gt;
+    &lt;None Include=&quot;App.config&quot; /&gt;
+  &lt;/ItemGroup&gt;
+  &lt;Import Project=&quot;$(MSBuildToolsPath)\Microsoft.CSharp.targets&quot; /&gt;
+&lt;/Project&gt;</code></pre>
+                <div class="bs-callout bs-callout-warning" id="import-placement"> <h4>Build.props import placement</h4> <p>It is recommended that the import of build.props come after the first property group.  This enables CBT to have access to the properties like <code>$(AssemblyName)</code>.  
+                    If build.props is imported before this group, these properties are not available and some functionality is disabled.</p> </div>
+                <h1 class="page-header" id="folder-structure">Folder structure</h1>
                 <p>To get started with CBT for your source code projects, you'll first need to establish a <strong>root</strong> folder.  For source control systems like Git, this would be the root of the repository.  If your source code projects are not source control, this would be some base folder that your set of projects share.</p>
                 <p>CBT uses three folders which you'll need to in your source code tree.
                     <ol>
@@ -51,6 +110,7 @@
 </code></pre>
             <p>The addition is really just the root <code>build.props</code> file along with CBT itself.</p>
             </div>
+            
         </div>
         <div class="col-md-2" role="complementary"></div>
     </div>
