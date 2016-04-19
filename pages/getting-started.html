@@ -21,7 +21,7 @@
                 </p>
                 <div class="bs-callout bs-callout-warning" id="remove-mscp"> <h4>Remove import of Microsoft.Common.props</h4> <p>Most default project templates will add an import for Microsoft.Common.props.  This import can be replaced by the import of the CBT build.props instead.  Microsoft.Common.props is still imported by Microsoft.Common.targets so you won't lose any functionality.</p> </div>
                 <p>This is an example project after it has been converted.  The only change from project creation is the removal of the Microsoft.Common.props and the addition of the CBT build.props import.</p>
-                <pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+                <pre><code class="language-xml" data-lang="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
 &lt;Project ToolsVersion=&quot;12.0&quot; DefaultTargets=&quot;Build&quot; xmlns=&quot;http://schemas.microsoft.com/developer/msbuild/2003&quot;&gt;
   &lt;PropertyGroup&gt;
     &lt;Configuration Condition=&quot; &#39;$(Configuration)&#39; == &#39;&#39; &quot;&gt;Debug&lt;/Configuration&gt;
