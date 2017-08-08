@@ -261,7 +261,7 @@
                     <pre><code class="language-xml" data-lang="xml"><span class="c">&lt;?xml version="1.0" encoding="utf-8" ?&gt;</span>
 <span class="nt">&lt;Project <span class="na">xmlns=</span><span class="s">"http://schemas.microsoft.com/developer/msbuild/2003"</span>&gt;</span>
   <span class="nt">&lt;PropertyGroup&gt;</span>
-    <span class="nt">&lt;CBTAggregatePackage&gt;<span class="s">$(CBTAggregatePackage);NuGetPath_LSBuild_Corext=$(NuGetPath_LSBuild_Corext)|$(NuGetPath_LSBuild_Settings)|$(EnlistmentRoot)\lsbuild\parsers\config\wix|!$(EnlistmentRoot)\lsbuild\parsers\config\delete</span>&lt;CBTAggregatePackage/&gt;</span>
+    <span class="nt">&lt;CBTAggregatePackage&gt;<span class="s">$(CBTAggregatePackage);NuGetPath_LSBuild=$(NuGetPath_LSBuild)|$(NuGetPath_LSBuild_Settings)|$(EnlistmentRoot)\lsbuild\parsers\config\wix|!$(EnlistmentRoot)\lsbuild\parsers\config\delete</span>&lt;CBTAggregatePackage/&gt;</span>
   <span class="nt">&lt;/PropertyGroup&gt;</span>
 <span class="nt">&lt;/Project&gt;</span>
                         </code>
@@ -271,13 +271,13 @@
                     The above property does the following:<br />
                     <ul>
                         <li>By referencing <code>$(CBTAggregatePackage)</code> any packages defined prior will be aggregated.</li>
-                        <li>The key <code>NuGetPath_LSBuild_Corext</code> will be the name of the msbuild property that is set or redefined to the aggregated path.</li>
-                        <li><code>$(NuGetPath_LSBuild_Corext)</code> is the first subset of files to be included in the aggregate.  Paths are processed in order.</li>
+                        <li>The key <code>NuGetPath_LSBuild</code> will be the name of the msbuild property that is set or redefined to the aggregated path.</li>
+                        <li><code>$(NuGetPath_LSBuild)</code> is the first subset of files to be included in the aggregate.  Paths are processed in order.</li>
                         <li><code>$(NuGetPath_LSBuild_Settings)</code> will be copied into the aggregate folder second overwriting any files that currently exist.</li>
                         <li><code>$(EnlistmentRoot)\lsbuild\parsers\config\wix</code> will then be added to the aggregate folder.</li>
                         <li><code>!$(EnlistmentRoot)\lsbuild\parsers\config\delete</code> the ! denotes that the subset of file names found under this path should be removed from the aggregated package.</li>
-                        <li>The resulting folder will be located at <code>$(CBTAggregateDestPackageRoot)</code> under a hashed folder name accessible through the nuGet property NuGetPath_LSBuild_Corext.</li>
-                        <li>Because aggregate package properties are set after auto generated NuGetPath properties but before any consumption this will result in the aggregate package being used for any references to <code>$(NuGetPath_LSBuild_Corext)</code>.</li>
+                        <li>The resulting folder will be located at <code>$(CBTAggregateDestPackageRoot)</code> under a hashed folder name accessible through the nuGet property NuGetPath_LSBuild.</li>
+                        <li>Because aggregate package properties are set after auto generated NuGetPath properties but before any consumption this will result in the aggregate package being used for any references to <code>$(NuGetPath_LSBuild)</code>.</li>
                     </ul>
                 </p>
             </div>
