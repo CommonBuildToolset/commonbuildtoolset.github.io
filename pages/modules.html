@@ -267,19 +267,42 @@
                         </code>
                     </pre>
                 </figure>
-                <p>
-                    The above property does the following:<br />
-                    <ul>
-                        <li>By referencing <code>$(CBTAggregatePackage)</code> any packages defined prior will be aggregated.</li>
-                        <li>The key <code>NuGetPath_LSBuild</code> will be the name of the msbuild property that is set or redefined to the aggregated path.</li>
-                        <li><code>$(NuGetPath_LSBuild)</code> is the first subset of files to be included in the aggregate.  Paths are processed in order.</li>
-                        <li><code>$(NuGetPath_LSBuild_Settings)</code> will be copied into the aggregate folder second overwriting any files that currently exist.</li>
-                        <li><code>$(EnlistmentRoot)\lsbuild\parsers\config\wix</code> will then be added to the aggregate folder.</li>
-                        <li><code>!$(EnlistmentRoot)\lsbuild\parsers\config\delete</code> the ! denotes that the subset of file names found under this path should be removed from the aggregated package.</li>
-                        <li>The resulting folder will be located at <code>$(CBTAggregateDestPackageRoot)</code> under a hashed folder name accessible through the nuGet property NuGetPath_LSBuild.</li>
-                        <li>Because aggregate package properties are set after auto generated NuGetPath properties but before any consumption this will result in the aggregate package being used for any references to <code>$(NuGetPath_LSBuild)</code>.</li>
-                    </ul>
-                </p>
+            <p>
+                The above property does the following:<br />
+                <ul>
+                    <li>By referencing <code>$(CBTAggregatePackage)</code> any packages defined prior will be aggregated.</li>
+                    <li>The key <code>NuGetPath_LSBuild</code> will be the name of the msbuild property that is set or redefined to the aggregated path.</li>
+                    <li><code>$(NuGetPath_LSBuild)</code> is the first subset of files to be included in the aggregate.  Paths are processed in order.</li>
+                    <li><code>$(NuGetPath_LSBuild_Settings)</code> will be copied into the aggregate folder second overwriting any files that currently exist.</li>
+                    <li><code>$(EnlistmentRoot)\lsbuild\parsers\config\wix</code> will then be added to the aggregate folder.</li>
+                    <li><code>!$(EnlistmentRoot)\lsbuild\parsers\config\delete</code> the ! denotes that the subset of file names found under this path should be removed from the aggregated package.</li>
+                    <li>The resulting folder will be located at <code>$(CBTAggregateDestPackageRoot)</code> under a hashed folder name accessible through the nuGet property NuGetPath_LSBuild.</li>
+                    <li>Because aggregate package properties are set after auto generated NuGetPath properties but before any consumption this will result in the aggregate package being used for any references to <code>$(NuGetPath_LSBuild)</code>.</li>
+                </ul>
+            </p>
+                
+                
+            <h1 id="dotnetfx" class="page-header">DotNet Framework References</h1>
+            <p>Standard build NuGet packages for dotnet framework build references.</p>
+            <h3>Properties</h3>
+            <table class="table table-bordered ">
+                <tr>
+                    <th>Property</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>TargetFrameworkVersion</td>
+                    <td>If specified <code>$(FrameworkPathOverride)</code>, <code>$(_FullFrameworkReferenceAssemblyPaths)</code>, <code>$(_TargetFrameworkDirectories)</code> are remapped to the build\net* folder located in the CBT.DotNetFx-net* package.</td>
+                </tr>
+                <tr>
+                    <td>TargetFramework</td>
+                    <td>If specified <code>$(FrameworkPathOverride)</code>, <code>$(_FullFrameworkReferenceAssemblyPaths)</code>, <code>$(_TargetFrameworkDirectories)</code> are remapped to the build\net* folder located in the CBT.DotNetFx-net* package.</td>
+                </tr>
+            </table>
+            <h3>Usage</h3>
+            <p>Add a package reference to the CBT.DotNetFx-net* NuGet package to your msbuild project.  If your project has defined <code>TargetFrameworkVersion</code> or <code>TargetFramework</code> to match the framework of that package then it will remap to pull your framework references from that NuGet package.<br/>
+               Special note: net* is short hand for (net35, net45, net451, net452, net46, net461, net462, ...)</p>
+
             </div>
         </div>
 
@@ -287,20 +310,10 @@
             <ul class="nav bs-docs-sidenav">
                 <li class=""> <a href="#/modules#traversal">Traversal</a> </li>
                 <li class=""> <a href="#/modules#aggregate">Aggregate Packages</a> </li>
+                <li class=""> <a href="#/modules#dotnetfx">DotNet Framework References</a> </li>
             </ul>
             <a class="back-to-top" href="#top"> Back to top </a>
         </div>
     </div>
 
 </div>
-
-<!--
-
-    
-  
-  &lt;ItemGroup&gt;
-    &lt;ProjectFile Include="**\*.csproj" /&gt;
-  &lt;/ItemGroup&gt;
-  &lt;Import Project="$(TraversalTargets)" /&gt;
-
--->
