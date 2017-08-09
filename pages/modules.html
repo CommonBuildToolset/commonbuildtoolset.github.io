@@ -84,7 +84,83 @@
                                 <p>Bootstrap uses <a href="https://github.com/postcss/autoprefixer">Autoprefixer</a> to deal with <a href="http://webdesign.about.com/od/css/a/css-vendor-prefixes.htm">CSS vendor prefixes</a>. If you're compiling Bootstrap from its Less/Sass source and not using our Gruntfile, you'll need to integrate Autoprefixer into your build process yourself. If you're using precompiled Bootstrap or using our Gruntfile, you don't need to worry about this because Autoprefixer is already integrated into our Gruntfile.
                                 </p>-->
 
-                <h1 id="traversal" class="page-header">Traversal</h1>
+            <h1 id="overview" class="page-header">Overview</h1>
+            <p>CBTModules are CBT specific packages that are designed to extend the build system through various extension points.</p>
+            <h3>Adding Modules to the build</h3>
+            <p>Your module config <code>$(CBTModulePackageConfigPath)</code> defaults to the first file that exists in the below search pattern.</p>
+            <ol>
+                <li>$(CBTLocalPath)\CBTModules\CBTModules.proj</li>
+                <li>$(CBTLocalPath)\CBTModules.proj</li>
+                <li>$(CBTLocalPath)\CBTModules\project.json</li>
+                <li>$(CBTLocalPath)\project.json</li>
+                <li>$(CBTLocalPath)\CBTModules\packages.config</li>
+                <li>$(CBTLocalPath)\packages.config</li>
+            </ol>
+            <h3>Using PackageReference for modules (Recommended)</h3>
+            <p>To use &lt;PackageReference msbuild items you would need to use the CBTModules.proj file and be building with MSBuild 15.0 or higher. An example module project file would be.  You would also need to have a Directory.Build.props at the root of your enlistment that imported your CBT build.props.</p>
+            <figure class="highlight">
+                <pre><code class="language-xml" data-lang="xml"><span class="c">&lt;?xml version="1.0" encoding="utf-8" ?&gt;</span>
+<span class="nt">&lt;Project <span class="na">SDK=</span><span class="s">"Microsoft.NET.Sdk"</span>&gt;</span>
+  <span class="nt">&lt;PropertyGroup&gt;</span>
+    <span class="nt">&lt;TargetFramework&gt;<span class="s">net45</span>&lt;TargetFramework/&gt;</span>
+  <span class="nt">&lt;/PropertyGroup&gt;</span>
+  <span class="nt">&lt;ItemGroup&gt;</span>
+    <span class="nt">&lt;PackageReference <span class="na">Include=</span><span class="s">"CBT.NuGet"</span> <span class="na">Version=</span><span class="s">"2.0.18"</span> /&gt;</span>
+  <span class="nt">&lt;/ItemGroup&gt;</span>
+<span class="nt">&lt;/Project&gt;</span>
+                        </code>
+                    </pre>
+            </figure>
+
+            <h3>Using Project.json for modules (deprecated)</h3>
+            <p>To use a project.json for module restore you need to use nuGet 3.5 or prior. An example project.json file would be.</p>
+            <figure class="highlight">
+                <pre><code><span class="c">{</span>
+  <span class="c">"dependencies": {</span>
+    <span class="c">"CBT.NuGet": "2.0.18",</span>
+  <span class="c">},</span>
+  <span class="c">"frameworks": {</span>
+    <span class="c">"any": {}</span>
+  <span class="c">},</span>
+    <span class="c">"runtimes": {</span>
+      <span class="c">"any": {}</span>
+  <span class="c">}</span>
+<span class="c">}</span>
+                        </code>
+                    </pre>
+            </figure>
+                
+            <h3>Using packages.config for modules (deprecated)</h3>
+            <p>To use a packages.config for module restore you need to use nuGet 3.5 or prior. An example project.json file would be.</p>
+            <figure class="highlight">
+                <pre><code class="language-xml" data-lang="xml"><span class="c">&lt;?xml version="1.0" encoding="utf-8" ?&gt;</span>
+<span class="nt">&lt;packages&gt;</span>
+  <span class="nt">&lt;package <span class="na">id=</span><span class="s">"CBT.NuGet"</span> <span class="na">version=</span><span class="s">"2.0.18"</span> /&gt;</span>
+<span class="nt">&lt;/packages&gt;</span>
+                        </code>
+                    </pre>
+            </figure>
+                
+            <h3>Properties</h3>
+            <table class="table table-bordered ">
+                <tr>
+                    <th>Property</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>CBTModule_*</td>
+                    <td>A CBTModule_* property is generated for each nuGet package.  It will take the package Id and replace all . with _.  Example <code>$(CBTModule_CBT_NuGet)</code> will be generated and point to the root of the nuGet package.</td>
+                </tr>
+                <tr>
+                    <td>CBTAllModulePaths</td>
+                    <td>This is a kvp that is delimited with ; that contains all cbtmodules. Example <code>CBT.Microsoft.Common.targets=$(NuGetPackagesPath)\cbt.microsoft.common.targets\2.0.11;CBT.NuGet=$(NuGetPackagesPath)\cbt.nuget\2.0.18</code></td>
+                </tr>
+            </table>
+                
+            <h3>Enabling CBT Modules or build packages for your codebase</h3>
+            <p>Any CBTModule added to the CBT modules config file will automatically be included in the import graph of every project for that codebase.  Standard build nuGet packages will not be enabled by default you would need to set the <code>Enable*</code> property pattern.<br/>Example <code>&lt;EnableCBT_Dotnetfx-net45&gt;true&lt;EnableCBT_Dotnetfx-net45&gt;</code> would enable the CBT.Dotnetfx-net45 nuGet package for inclusion in your projects import graph.  You would likely set this property in your root Directory.build.props.</p>
+
+            <h1 id="traversal" class="page-header">Traversal</h1>
                 <p>Traversal projects are replacements for Visual Studio solutions.  They allow you to run MSBuild throughout the source code tree by indicating what projects should be built at various levels.  Traditionally, traversal projects exist at every level in the source code tree and allow users to build everything from that level down.  The root traversal project will therefore build everything in the tree.  The root traversal project is generally used in distributed build scenarios and can give a lot more control than Visual Studio solutions.</p>
                 <h3>Properties</h3>
                 <table class="table table-bordered ">
@@ -254,7 +330,7 @@
                 </table>
 
                 <h3>Usage</h3>
-                <p>This is a sample <code>.build\local\extensions\Before.CBT.Nuget.AggregatePackage.props</code>.</p>
+                <p>This is a sample <code>.build\local\extensions\Before.CBT.NuGet.AggregatePackage.props</code>.</p>
 
                 <div class="zero-clipboard"><span class="btn-clipboard">Copy</span></div>
                 <figure class="highlight">
@@ -308,6 +384,7 @@
 
         <div class="col-md-2" id="sidebar" role="complementary">
             <ul class="nav bs-docs-sidenav">
+                <li class=""> <a href="#/modules#overview">Overview</a> </li>
                 <li class=""> <a href="#/modules#traversal">Traversal</a> </li>
                 <li class=""> <a href="#/modules#aggregate">Aggregate Packages</a> </li>
                 <li class=""> <a href="#/modules#dotnetfx">DotNet Framework References</a> </li>
