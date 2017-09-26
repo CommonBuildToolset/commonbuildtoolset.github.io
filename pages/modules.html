@@ -96,13 +96,13 @@
                 <li>$(CBTLocalPath)\CBTModules\packages.config</li>
                 <li>$(CBTLocalPath)\packages.config</li>
             </ol>
-            <h3>Using PackageReference for modules (Recommended)</h3>
+            <h3>Using PackageReference for modules (In limited beta)</h3>
             <p>To use &lt;PackageReference msbuild items you would need to use the CBTModules.proj file and be building with MSBuild 15.0 or higher. An example module project file would be.  You would also need to have a Directory.Build.props at the root of your enlistment that imported your CBT build.props.</p>
             <figure class="highlight">
                 <pre><code class="language-xml" data-lang="xml"><span class="c">&lt;?xml version="1.0" encoding="utf-8" ?&gt;</span>
-<span class="nt">&lt;Project <span class="na">SDK=</span><span class="s">"Microsoft.NET.Sdk"</span>&gt;</span>
+<span class="nt">&lt;Project <span class="na">Sdk=</span><span class="s">"Microsoft.NET.Sdk"</span>&gt;</span>
   <span class="nt">&lt;PropertyGroup&gt;</span>
-    <span class="nt">&lt;TargetFramework&gt;<span class="s">net45</span>&lt;TargetFramework/&gt;</span>
+    <span class="nt">&lt;TargetFramework&gt;<span class="s">net45</span>&lt;/TargetFramework&gt;</span>
   <span class="nt">&lt;/PropertyGroup&gt;</span>
   <span class="nt">&lt;ItemGroup&gt;</span>
     <span class="nt">&lt;PackageReference <span class="na">Include=</span><span class="s">"CBT.NuGet"</span> <span class="na">Version=</span><span class="s">"2.0.18"</span> /&gt;</span>
@@ -112,7 +112,7 @@
                     </pre>
             </figure>
 
-            <h3>Using Project.json for modules (deprecated)</h3>
+            <h3>Using Project.json for modules</h3>
             <p>To use a project.json for module restore you need to use nuGet 3.5 or prior. An example project.json file would be.</p>
             <figure class="highlight">
                 <pre><code><span class="c">{</span>
@@ -130,7 +130,7 @@
                     </pre>
             </figure>
                 
-            <h3>Using packages.config for modules (deprecated)</h3>
+            <h3>Using packages.config for modules</h3>
             <p>To use a packages.config for module restore you need to use nuGet 3.5 or prior. An example project.json file would be.</p>
             <figure class="highlight">
                 <pre><code class="language-xml" data-lang="xml"><span class="c">&lt;?xml version="1.0" encoding="utf-8" ?&gt;</span>
