@@ -9,85 +9,10 @@
     <div class="row">
         <div class="col-md-10" role="main">
             <div class="bs-docs-section">
-                <!--<h1 id="download" class="page-header">
-                                    <a class="anchorjs-link " href="#download" aria-label="Anchor link for: download" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>Download
-                                </h1>
-                                <p class="lead">Bootstrap (currently v3.3.6) has a few easy ways to quickly get started, each one appealing to a different skill level and use case. Read through to see what suits your particular needs.</p>
-
-                                <div class="row bs-downloads">
-
-                                    <div class="col-sm-4">
-                                        <h3 id="download-bootstrap">Bootstrap</h3>
-                                        <p>Compiled and minified CSS, JavaScript, and fonts. No docs or original source files are included.</p>
-                                        <p>
-                                            <a href="https://github.com/twbs/bootstrap/releases/download/v3.3.6/bootstrap-3.3.6-dist.zip" class="btn btn-lg btn-outline" onclick="ga(&quot;send&quot;, &quot;event&quot;, &quot;Getting started&quot;, &quot;Download&quot;, &quot;Download compiled&quot;)">Download Bootstrap</a>
-                                        </p>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <h3 id="download-source">Source code</h3>
-                                        <p>
-                                            Source Less, JavaScript, and font files, along with our docs. <strong>Requires a Less compiler and <a href="#grunt">some setup.</a></strong>
-                                        </p>
-                                        <p>
-                                            <a href="https://github.com/twbs/bootstrap/archive/v3.3.6.zip" class="btn btn-lg btn-outline" onclick="ga(&quot;send&quot;, &quot;event&quot;, &quot;Getting started&quot;, &quot;Download&quot;, &quot;Download source&quot;)">Download source</a>
-                                        </p>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <h3 id="download-sass">Sass</h3>
-                                        <p>
-                                            <a href="https://github.com/twbs/bootstrap-sass">Bootstrap ported from Less to Sass</a> for easy inclusion in Rails, Compass, or Sass-only projects.
-                                        </p>
-                                        <p>
-                                            <a href="https://github.com/twbs/bootstrap-sass/archive/v3.3.6.tar.gz" class="btn btn-lg btn-outline" onclick="ga(&quot;send&quot;, &quot;event&quot;, &quot;Getting started&quot;, &quot;Download&quot;, &quot;Download Sass&quot;)">Download Sass</a>
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <h2 id="download-cdn">
-                                    <a class="anchorjs-link " href="#download-cdn" aria-label="Anchor link for: download cdn" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>Bootstrap CDN
-                                </h2>
-                                <p>
-                                    The folks over at <a href="https://www.maxcdn.com/">MaxCDN</a> graciously provide CDN support for Bootstrap's CSS and JavaScript. Just use these <a href="https://www.bootstrapcdn.com/">Bootstrap CDN</a> links.
-                                </p>
-                                <div class="zero-clipboard"><span class="btn-clipboard">Copy</span></div>
-                                <figure class="highlight">
-                                    <pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- Latest compiled and minified CSS --&gt;</span>
-                <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"</span> <span class="na">integrity=</span><span class="s">"sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"</span> <span class="na">crossorigin=</span><span class="s">"anonymous"</span><span class="nt">&gt;</span>
-                <span class="c">&lt;!-- Optional theme --&gt;</span>
-                <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"</span> <span class="na">integrity=</span><span class="s">"sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r"</span> <span class="na">crossorigin=</span><span class="s">"anonymous"</span><span class="nt">&gt;</span>
-                <span class="c">&lt;!-- Latest compiled and minified JavaScript --&gt;</span>
-                <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"</span> <span class="na">integrity=</span><span class="s">"sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"</span> <span class="na">crossorigin=</span><span class="s">"anonymous"</span><span class="nt">&gt;&lt;/script&gt;</span>
-                                        </code>
-                                    </pre>
-                                </figure>
-                                <h2 id="download-bower"><a class="anchorjs-link " href="#download-bower" aria-label="Anchor link for: download bower" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>Install with Bower
-                                </h2>
-                                <p>You can also install and manage Bootstrap's Less, CSS, JavaScript, and fonts using <a href="http://bower.io">Bower</a>:
-                                </p>
-                                <div class="zero-clipboard"><span class="btn-clipboard">Copy</span></div><figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>bower install bootstrap</code></pre></figure>
-                                <h2 id="download-npm"><a class="anchorjs-link " href="#download-npm" aria-label="Anchor link for: download npm" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>Install with npm
-                                </h2>
-                                <p>You can also install Bootstrap using <a href="https://www.npmjs.com">npm</a>:
-                                </p>
-                                <div class="zero-clipboard"><span class="btn-clipboard">Copy</span></div><figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>npm install bootstrap</code></pre></figure>
-                                <p><code>require('bootstrap')</code> will load all of Bootstrap's jQuery plugins onto the jQuery object. The <code>bootstrap</code> module itself does not export anything. You can manually load Bootstrap's jQuery plugins individually by loading the <code>/js/*.js</code> files under the package's top-level directory.
-                                </p>
-                                <p>Bootstrap's <code>package.json</code> contains some additional metadata under the following keys:
-                                </p> <ul> <li><code>less</code> - path to Bootstrap's main <a href="http://lesscss.org">Less</a> source file</li> <li><code>style</code> - path to Bootstrap's non-minified CSS that's been precompiled using the default settings (no customization)</li> </ul>
-                                <h2 id="download-composer"><a class="anchorjs-link " href="#download-composer" aria-label="Anchor link for: download composer" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>Install with Composer
-                                </h2>
-                                <p>You can also install and manage Bootstrap's Less, CSS, JavaScript, and fonts using <a href="https://getcomposer.org">Composer</a>:
-                                </p>
-                                <div class="zero-clipboard"><span class="btn-clipboard">Copy</span></div><figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>composer require twbs/bootstrap</code></pre></figure>
-                                <h2 id="download-autoprefixer"><a class="anchorjs-link " href="#download-autoprefixer" aria-label="Anchor link for: download autoprefixer" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>Autoprefixer required for Less/Sass
-                                </h2>
-                                <p>Bootstrap uses <a href="https://github.com/postcss/autoprefixer">Autoprefixer</a> to deal with <a href="http://webdesign.about.com/od/css/a/css-vendor-prefixes.htm">CSS vendor prefixes</a>. If you're compiling Bootstrap from its Less/Sass source and not using our Gruntfile, you'll need to integrate Autoprefixer into your build process yourself. If you're using precompiled Bootstrap or using our Gruntfile, you don't need to worry about this because Autoprefixer is already integrated into our Gruntfile.
-                                </p>-->
-
             <h1 id="overview" class="page-header">Overview</h1>
             <p>CBTModules are CBT specific packages that are designed to extend the build system through various extension points.</p>
             <h3>Adding Modules to the build</h3>
-            <p>Your module config <code>$(CBTModulePackageConfigPath)</code> defaults to the first file that exists in the below search pattern.</p>
+            <p>Your module config <code>$(CBTModulePackageConfigPath)</code> defaults to the first file that exists in the following search pattern.</p>
             <ol>
                 <li>$(CBTLocalPath)\CBTModules\CBTModules.proj</li>
                 <li>$(CBTLocalPath)\CBTModules.proj</li>
@@ -97,7 +22,7 @@
                 <li>$(CBTLocalPath)\packages.config</li>
             </ol>
             <h3>Using PackageReference for modules (In limited beta)</h3>
-            <p>To use <code>&lt;PackageReference</code> MSBuild items you would need to use the CBTModules.proj file and be building with MSBuild 15.0 or higher.  You would also need to have a <code>Directory.Build.props</code> at the root of your enlistment that imports your <code>.build\cbt\build.props</code>.  An example module project file would be.</p>
+            <p>To use <code>&lt;PackageReference&gt;</code> MSBuild items you need to use the CBTModules.proj file and build with MSBuild 15.0 or higher. You also need to have a <code>Directory.Build.props</code> at the root of your enlistment that imports <code>.build\cbt\build.props</code>.  An example module project file would be:</p>
             <figure class="highlight">
                 <pre><code class="language-xml" data-lang="xml"><span class="c">&lt;?xml version="1.0" encoding="utf-8" ?&gt;</span>
 <span class="nt">&lt;Project <span class="na">Sdk=</span><span class="s">"Microsoft.NET.Sdk"</span>&gt;</span>
@@ -131,19 +56,36 @@
                 </tr>
                 <tr>
                     <td>CBTModule_*</td>
-                    <td>A CBTModule_* property is generated for each nuGet package.  It will take the package Id and replace all . with _.  Example <code>$(CBTModule_CBT_NuGet)</code> will be generated and point to the root of the nuGet package.</td>
+                    <td>A CBTModule_* property is generated for each NuGet package. It will take the package ID and replace all <code>.</code> characters with <code>_</code> . In the packages.config example above, <code>$(CBTModule_CBT_NuGet)</code> will be generated pointing to the root of the NuGet package.</td>
                 </tr>
                 <tr>
                     <td>CBTAllModulePaths</td>
-                    <td>This is a kvp that is delimited with ; that contains all cbtmodules. Example <code>CBT.Microsoft.Common.targets=$(NuGetPackagesPath)\cbt.microsoft.common.targets\2.0.11;CBT.NuGet=$(NuGetPackagesPath)\cbt.nuget\2.0.18</code></td>
+                    <td>This is a key-value pair list that is delimited with ; that contains all CBTModules. Example: <code>CBT.Microsoft.Common.targets=$(NuGetPackagesPath)\cbt.microsoft.common.targets\2.0.11;CBT.NuGet=$(NuGetPackagesPath)\cbt.nuget\2.0.18</code></td>
                 </tr>
             </table>
                 
             <h3>Enabling CBT Modules or build packages for your codebase</h3>
-            <p>Any CBTModule added to the CBT modules config file will automatically be included in the import graph of every project for that codebase.  Standard build nuGet packages will not be enabled by default you would need to set the <code>Enable*</code> property pattern.<br/>Example <code>&lt;EnableCBT_Dotnetfx-net45&gt;true&lt;EnableCBT_Dotnetfx-net45&gt;</code> would enable the CBT.Dotnetfx-net45 nuGet package for inclusion in your projects import graph.  You would likely set this property in your root <code>Directory.build.props</code>.</p>
+            <p>
+                Any CBTModule added to the CBT modules config file will automatically be included in the import
+                graph of every project for that codebase. Standard build NuGet packages will not be enabled by
+                default; you need to set the <code>Enable*</code> property pattern.<br/>
+                For example, <code>&lt;EnableCBT_Dotnetfx-net45&gt;true&lt;EnableCBT_Dotnetfx-net45&gt;</code>
+                would enable the CBT.Dotnetfx-net45 NuGet package for inclusion in your projects import graph.
+                You would likely set this property in your root <code>Directory.build.props</code>.
+            </p>
 
             <h1 id="traversal" class="page-header">Traversal</h1>
-                <p>Traversal projects are replacements for Visual Studio solutions.  They allow you to run MSBuild throughout the source code tree by indicating what projects should be built at various levels.  Traditionally, traversal projects exist at every level in the source code tree and allow users to build everything from that level down.  The root traversal project will therefore build everything in the tree.  The root traversal project is generally used in distributed build scenarios and can give a lot more control than Visual Studio solutions.</p>
+                <p>
+                    Traversal projects are replacements for Visual Studio solutions. The standard name
+                    for them is <code>dirs.proj</code>, in which are listed the projects - including
+                    other dirs.proj files - to build in subdirectories below the dirs.proj file.
+                    They allow you to run MSBuild throughout the source code tree. Traditionally,
+                    traversal projects exist at every level in the source code tree and allow users
+                    to build everything from that level down. The root traversal project will
+                    therefore build everything in the tree. The root traversal project is generally
+                    used in distributed build scenarios and can give a lot more control than
+                    Visual Studio solutions.
+                </p>
                 <h3>Properties</h3>
                 <table class="table table-bordered ">
                     <tr>
@@ -160,7 +102,7 @@
                     </tr>
                     <tr>
                         <td>TraversalProjectNames</td>
-                        <td>A semi-colon delimited list of file names of traversal projects. If you want to name your traversal project files something other than 'dirs.proj', include the name in this list so that the <code>$(IsTraversal)</code> property will be set to true for your traversal projects.</td>
+                        <td>A semicolon delimited list of file names of traversal projects. If you want to name your traversal project files something other than 'dirs.proj', include the name in this list so that the <code>$(IsTraversal)</code> property will be set to true for your traversal projects.</td>
                     </tr>
                     <tr>
                         <td>CustomBeforeTraversalTargets</td>
@@ -196,18 +138,14 @@
                 <figure class="highlight">
                     <pre><code class="language-xml" data-lang="xml"><span class="c">&lt;?xml version="1.0" encoding="utf-8" ?&gt;</span>
 <span class="nt">&lt;Project <span class="na">xmlns=</span><span class="s">"http://schemas.microsoft.com/developer/msbuild/2003"</span>&gt;</span>
-    
-                    <span class="nt">&lt;Import <span class="na">Project=</span><span class="s">"$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), build.props))\build.props"</span> /&gt;</span>
+  <span class="nt">&lt;Import <span class="na">Project=</span><span class="s">"$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), build.props))\build.props"</span> /&gt;</span>
 
-                    <span class="nt">&lt;ItemGroup&gt;</span>
-                    <span class="nt">&lt;ProjectFile <span class="na">Include=</span><span class="s">"**\*.csproj"</span> /&gt;</span>
-                    <span class="nt">&lt;/ItemGroup&gt;</span>
+  <span class="nt">&lt;ItemGroup&gt;</span>
+    <span class="nt">&lt;ProjectFile <span class="na">Include=</span><span class="s">"**\*.csproj"</span> /&gt;</span>
+  <span class="nt">&lt;/ItemGroup&gt;</span>
 
-                    <span class="nt">&lt;Import <span class="na">Project=</span><span class="s">"$(TraversalTargets)"</span> /&gt;</span>
-
-<span class="nt">&lt;/Project&gt;</span>
-                        </code>
-                    </pre>
+  <span class="nt">&lt;Import <span class="na">Project=</span><span class="s">"$(TraversalTargets)"</span> /&gt;</span>
+<span class="nt">&lt;/Project&gt;</span></code></pre>
                 </figure>
 
                 <h3>Build selective projects</h3>
@@ -217,20 +155,16 @@
                 <figure class="highlight">
                     <pre><code class="language-xml" data-lang="xml"><span class="c">&lt;?xml version="1.0" encoding="utf-8" ?&gt;</span>
 <span class="nt">&lt;Project <span class="na">xmlns=</span><span class="s">"http://schemas.microsoft.com/developer/msbuild/2003"</span>&gt;</span>
-    
-                    <span class="nt">&lt;Import <span class="na">Project=</span><span class="s">"$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), build.props))\build.props"</span> /&gt;</span>
+  <span class="nt">&lt;Import <span class="na">Project=</span><span class="s">"$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), build.props))\build.props"</span> /&gt;</span>
 
-                    <span class="nt">&lt;ItemGroup&gt;</span>
-                    <span class="nt">&lt;ProjectFile <span class="na">Include=</span><span class="s">"Project1\Project1.csproj"</span> /&gt;</span>
-                    <span class="nt">&lt;ProjectFile <span class="na">Include=</span><span class="s">"Project2\Project2.csproj"</span> /&gt;</span>
-                    <span class="nt">&lt;ProjectFile <span class="na">Include=</span><span class="s">"Project3\Project3.csproj"</span> /&gt;</span>
-                    <span class="nt">&lt;/ItemGroup&gt;</span>
+  <span class="nt">&lt;ItemGroup&gt;</span>
+    <span class="nt">&lt;ProjectFile <span class="na">Include=</span><span class="s">"Project1\Project1.csproj"</span> /&gt;</span>
+    <span class="nt">&lt;ProjectFile <span class="na">Include=</span><span class="s">"Project2\Project2.csproj"</span> /&gt;</span>
+    <span class="nt">&lt;ProjectFile <span class="na">Include=</span><span class="s">"Project3\Project3.csproj"</span> /&gt;</span>
+  <span class="nt">&lt;/ItemGroup&gt;</span>
 
-                    <span class="nt">&lt;Import <span class="na">Project=</span><span class="s">"$(TraversalTargets)"</span> /&gt;</span>
-
-<span class="nt">&lt;/Project&gt;</span>
-                        </code>
-                    </pre>
+  <span class="nt">&lt;Import <span class="na">Project=</span><span class="s">"$(TraversalTargets)"</span> /&gt;</span>
+<span class="nt">&lt;/Project&gt;</span></code></pre>
                 </figure>
 
                 <h3>Build recursively</h3>
@@ -240,26 +174,31 @@
                 <figure class="highlight">
                     <pre><code class="language-xml" data-lang="xml"><span class="c">&lt;?xml version="1.0" encoding="utf-8" ?&gt;</span>
 <span class="nt">&lt;Project <span class="na">xmlns=</span><span class="s">"http://schemas.microsoft.com/developer/msbuild/2003"</span>&gt;</span>
-    
-                    <span class="nt">&lt;Import <span class="na">Project=</span><span class="s">"$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), build.props))\build.props"</span> /&gt;</span>
+  <span class="nt">&lt;Import <span class="na">Project=</span><span class="s">"$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), build.props))\build.props"</span> /&gt;</span>
 
-                    <span class="nt">&lt;ItemGroup&gt;</span>
-                    <span class="nt">&lt;ProjectFile <span class="na">Include=</span><span class="s">"Directory1\dirs.proj"</span> /&gt;</span>
-                    <span class="nt">&lt;ProjectFile <span class="na">Include=</span><span class="s">"Directory2\dirs.proj"</span> /&gt;</span>
-                    <span class="nt">&lt;ProjectFile <span class="na">Include=</span><span class="s">"Directory3\dirs.proj"</span> /&gt;</span>
-                    <span class="nt">&lt;ProjectFile <span class="na">Include=</span><span class="s">"ProjectA\ProjectA.csproj"</span> /&gt;</span>
-                    <span class="nt">&lt;/ItemGroup&gt;</span>
+  <span class="nt">&lt;ItemGroup&gt;</span>
+    <span class="nt">&lt;ProjectFile <span class="na">Include=</span><span class="s">"Directory1\dirs.proj"</span> /&gt;</span>
+    <span class="nt">&lt;ProjectFile <span class="na">Include=</span><span class="s">"Directory2\dirs.proj"</span> /&gt;</span>
+    <span class="nt">&lt;ProjectFile <span class="na">Include=</span><span class="s">"Directory3\dirs.proj"</span> /&gt;</span>
+    <span class="nt">&lt;ProjectFile <span class="na">Include=</span><span class="s">"ProjectA\ProjectA.csproj"</span> /&gt;</span>
+  <span class="nt">&lt;/ItemGroup&gt;</span>
 
-                    <span class="nt">&lt;Import <span class="na">Project=</span><span class="s">"$(TraversalTargets)"</span> /&gt;</span>
-
-<span class="nt">&lt;/Project&gt;</span>
-                        </code>
-                    </pre>
+  <span class="nt">&lt;Import <span class="na">Project=</span><span class="s">"$(TraversalTargets)"</span> /&gt;</span>
+<span class="nt">&lt;/Project&gt;</span></code></pre>
                 </figure>
 
 
                 <h1 id="aggregate" class="page-header">Aggregate Packages</h1>
-                <p>Aggregate packages is a feature where two or more packages are aggregated into a separate folder.  This effectively lets you modify NuGet package contents on your machine by aggregating the contents of one or more packages. It is useful when you are consuming tools that rely on configuration files next to the executables and you don't want to have a custom version of the entire NuGet package.  We strongly discourage the use of aggregate packages but have provided this feature for the support of legacy tools.  Add the CBT.NuGet.AggregatePackage to your module package configuration.</p>
+                <p>
+                    Aggregate packages is a feature where two or more packages are aggregated into a
+                    separate folder. This effectively lets you modify NuGet package contents on your
+                    machine by aggregating the contents of one or more packages. It is useful when you
+                    are consuming tools that rely on configuration files next to the executables and
+                    you don't want to have a custom version of the entire NuGet package. We strongly
+                    discourage the use of aggregate packages but have provided this feature for the
+                    support of legacy tools. Add the CBT.NuGet.AggregatePackage to your module
+                    package configuration.
+                </p>
                 <h3>Properties</h3>
                 <table class="table table-bordered ">
                     <tr>
@@ -321,20 +260,18 @@
   <span class="nt">&lt;PropertyGroup&gt;</span>
     <span class="nt">&lt;CBTAggregatePackage&gt;<span class="s">$(CBTAggregatePackage);NuGetPath_LSBuild=$(NuGetPath_LSBuild)|$(NuGetPath_LSBuild_Settings)|$(EnlistmentRoot)\lsbuild\parsers\config\wix|!$(EnlistmentRoot)\lsbuild\parsers\config\delete</span>&lt;CBTAggregatePackage/&gt;</span>
   <span class="nt">&lt;/PropertyGroup&gt;</span>
-<span class="nt">&lt;/Project&gt;</span>
-                        </code>
-                    </pre>
+<span class="nt">&lt;/Project&gt;</span></code></pre>
                 </figure>
             <p>
-                The above property does the following:<br />
+                This props file does the following:<br />
                 <ul>
-                    <li>By referencing <code>$(CBTAggregatePackage)</code> any packages defined prior will be aggregated.</li>
-                    <li>The key <code>NuGetPath_LSBuild</code> will be the name of the msbuild property that is set or redefined to the aggregated path.</li>
+                    <li>By referencing <code>$(CBTAggregatePackage)</code> any packages defined before this import will be aggregated.</li>
+                    <li>The key <code>NuGetPath_LSBuild</code> will be the name of the MSBuild property that is set or redefined to the aggregated path.</li>
                     <li><code>$(NuGetPath_LSBuild)</code> is the first subset of files to be included in the aggregate.  Paths are processed in order.</li>
-                    <li><code>$(NuGetPath_LSBuild_Settings)</code> will be copied into the aggregate folder second overwriting any files that currently exist.</li>
+                    <li><code>$(NuGetPath_LSBuild_Settings)</code> will be copied into the aggregate folder second, overwriting any files that currently exist.</li>
                     <li><code>$(EnlistmentRoot)\lsbuild\parsers\config\wix</code> will then be added to the aggregate folder.</li>
                     <li><code>!$(EnlistmentRoot)\lsbuild\parsers\config\delete</code> the ! denotes that the subset of file names found under this path should be removed from the aggregated package.</li>
-                    <li>The resulting folder will be located at <code>$(CBTAggregateDestPackageRoot)</code> under a hashed folder name accessible through the nuGet property NuGetPath_LSBuild.</li>
+                    <li>The resulting folder will be located at <code>$(CBTAggregateDestPackageRoot)</code> under a hashed folder name accessible through the NuGet property NuGetPath_LSBuild.</li>
                     <li>Because aggregate package properties are set after auto generated NuGetPath properties but before any consumption this will result in the aggregate package being used for any references to <code>$(NuGetPath_LSBuild)</code>.</li>
                 </ul>
             </p>
@@ -360,7 +297,6 @@
             <h3>Usage</h3>
             <p>Add a package reference to the CBT.DotNetFx-net* NuGet package to your msbuild project.  If your project has defined <code>TargetFrameworkVersion</code> or <code>TargetFramework</code> to match the framework of that package then it will remap to pull your framework references from that NuGet package.<br/>
                Special note: net* is short hand for (net35, net45, net451, net452, net46, net461, net462, ...)</p>
-
             </div>
         </div>
 
@@ -374,5 +310,4 @@
             <a class="back-to-top" href="#top"> Back to top </a>
         </div>
     </div>
-
 </div>
